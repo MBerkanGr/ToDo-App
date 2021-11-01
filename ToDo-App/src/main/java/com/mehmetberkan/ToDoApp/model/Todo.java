@@ -14,6 +14,8 @@ public class Todo {
     private boolean status;
     private int userId;
 
+    public Todo(){}
+
     public Todo(int id, String content, boolean status, int userId) {
         this.id = id;
         this.content = content;

@@ -20,13 +20,12 @@ public class TodoManager implements TodoService {
 
     @Override
     public List<Todo> getAll() {
-        List<Todo> todoList = todoDao.findAll();
-        return  todoList;
+        return todoDao.findAll();
+
     }
 
     @Override
     public Todo getById(int id) {
-        Todo todo = todoDao.getById(id);
-        return todo;
+         return todoDao.findAll().get(id);
     }
 }
