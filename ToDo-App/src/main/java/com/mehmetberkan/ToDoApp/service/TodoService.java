@@ -5,6 +5,8 @@ import com.mehmetberkan.ToDoApp.model.Todo;
 import java.util.List;
 
 public interface TodoService {
-    public List<Todo> getAll();
-    public Todo getById(int id);
+    List<Todo> getAllTodo();
+    Todo getTodoById(int id);
+    Todo addTodo(Todo todo);
+    void deleteTodo(int id);
 }

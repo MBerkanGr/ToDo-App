@@ -3,10 +3,7 @@ package com.mehmetberkan.ToDoApp.controller;
 import com.mehmetberkan.ToDoApp.model.Todo;
 import com.mehmetberkan.ToDoApp.service.TodoService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -21,12 +18,22 @@ public class TodoController {
     }
 
     @GetMapping("/getAll")
-    public List<Todo> getAll(){
-        return todoService.getAll();
+    public List<Todo> getAllTodo(){
+        return todoService.getAllTodo();
     }
 
     @GetMapping("/getById")
-    public Todo getById(@RequestParam("Id") int id){
-        return todoService.getById(id);
+    public Todo getTodoById(@RequestParam("Id") int id){
+        return todoService.getTodoById(id);
+    }
+
+    @PostMapping("/add")
+    public Todo addTodo(@RequestBody Todo todo){
+        return todoService.addTodo(todo);
+    }
+
+    @DeleteMapping("/delete")
+    public void deleteTodo(@RequestParam("Id") int id){
+        todoService.deleteTodo(id);
     }
 }

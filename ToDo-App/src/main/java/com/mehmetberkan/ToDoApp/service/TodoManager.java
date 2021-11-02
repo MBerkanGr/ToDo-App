@@ -19,13 +19,23 @@ public class TodoManager implements TodoService {
     }
 
     @Override
-    public List<Todo> getAll() {
+    public List<Todo> getAllTodo() {
         return todoDao.findAll();
 
     }
 
     @Override
-    public Todo getById(int id) {
-         return todoDao.findAll().get(id);
+    public Todo getTodoById(int id) {
+         return todoDao.findById(id).get();
+    }
+
+    @Override
+    public Todo addTodo(Todo todo) {
+        return todoDao.save(todo);
+    }
+
+    @Override
+    public void deleteTodo(int id) {
+        todoDao.deleteById(id);
     }
 }
