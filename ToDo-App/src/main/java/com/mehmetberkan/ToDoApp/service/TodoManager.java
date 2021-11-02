@@ -35,7 +35,12 @@ public class TodoManager implements TodoService {
     }
 
     @Override
-    public void deleteTodo(int id) {
-        todoDao.deleteById(id);
+    public String deleteTodo(int id) {
+        try {
+            todoDao.deleteById(id);
+            return "Successfully deleted";
+        }catch (Exception e) {
+            return "Unsuccessful ( " + e.getMessage() + " )";
+        }
     }
 }
