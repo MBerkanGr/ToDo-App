@@ -43,4 +43,14 @@ public class TodoManager implements TodoService {
             return "Unsuccessful ( " + e.getMessage() + " )";
         }
     }
+
+    @Override
+    public List<Todo> getAllDone() {
+       return todoDao.findAllByStatusTrue();
+    }
+
+    @Override
+    public List<Todo> getAllNotdone() {
+        return todoDao.findAllByStatusFalse();
+    }
 }

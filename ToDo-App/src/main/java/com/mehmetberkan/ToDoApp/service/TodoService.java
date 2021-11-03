@@ -9,4 +9,6 @@ public interface TodoService {
     Todo getTodoById(int id);
     Todo addTodo(Todo todo);
     String deleteTodo(int id);
+    List<Todo> getAllDone();
+    List<Todo> getAllNotdone();
 }

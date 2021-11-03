@@ -38,4 +38,14 @@ public class TodoController {
     public String deleteTodo(@RequestParam("Id") int id){
          return todoService.deleteTodo(id);
     }
+
+    @GetMapping("/getAllDone")
+    public List<Todo> getAllDone(){
+        return todoService.getAllDone();
+    }
+
+    @GetMapping("/getAllNotdone")
+    public List<Todo> getAllNotdone(){
+        return todoService.getAllNotdone();
+    }
 }
