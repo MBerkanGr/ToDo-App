@@ -34,6 +34,11 @@ public class TodoController {
         return todoService.addTodo(todo);
     }
 
+    @PutMapping("/update")
+    public Todo updateTodo(@RequestParam("Id") int id, @RequestBody Todo todo){
+        return todoService.updateTodo(id,todo);
+    }
+
     @DeleteMapping("/delete")
     public String deleteTodo(@RequestParam("Id") int id){
          return todoService.deleteTodo(id);
@@ -47,5 +52,15 @@ public class TodoController {
     @GetMapping("/getAllNotdone")
     public List<Todo> getAllNotdone(){
         return todoService.getAllNotdone();
+    }
+
+    @PutMapping("/changeStatus")
+    public Todo changeStatus(@RequestParam("Id") int id,@RequestParam("status") Boolean status){
+        return todoService.changeStatus(id,status);
+    }
+
+    @PutMapping("/changeContent")
+    public Todo changeContent(@RequestParam("Id") int id,@RequestParam("content") String content){
+        return todoService.changeContent(id,content);
     }
 }

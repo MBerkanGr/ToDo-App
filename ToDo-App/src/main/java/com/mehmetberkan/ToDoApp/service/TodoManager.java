@@ -35,6 +35,13 @@ public class TodoManager implements TodoService {
     }
 
     @Override
+    public Todo updateTodo(int id, Todo todoDto) {
+        Todo todo = todoDto;
+        todo.setId(id);
+        return todoDao.save(todo);
+    }
+
+    @Override
     public String deleteTodo(int id) {
         try {
             todoDao.deleteById(id);
@@ -52,5 +59,19 @@ public class TodoManager implements TodoService {
     @Override
     public List<Todo> getAllNotdone() {
         return todoDao.findAllByStatusFalse();
+    }
+
+    @Override
+    public Todo changeStatus(int id, Boolean status) {
+        Todo todo = todoDao.getById(id);
+        todo.setStatus(status);
+        return todoDao.save(todo);
+    }
+
+    @Override
+    public Todo changeContent(int id, String content) {
+        Todo todo = todoDao.getById(id);
+        todo.setContent(content);
+        return todoDao.save(todo);
     }
 }

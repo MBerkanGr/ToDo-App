@@ -51,4 +51,8 @@ public class Todo {
         return userId;
     }
 
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
+
 }
