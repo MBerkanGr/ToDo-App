@@ -54,6 +54,11 @@ public class TodoController {
         return todoService.getAllNotdone();
     }
 
+    @GetMapping("/getAllByUserId")
+    public List<Todo> getTodoByUserId(@RequestParam("Id") int id){
+        return todoService.getAllByUserId(id);
+    }
+
     @PutMapping("/changeStatus")
     public Todo changeStatus(@RequestParam("Id") int id,@RequestParam("status") Boolean status){
         return todoService.changeStatus(id,status);

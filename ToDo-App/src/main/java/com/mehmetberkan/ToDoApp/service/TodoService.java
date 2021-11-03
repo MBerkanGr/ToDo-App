@@ -12,6 +12,7 @@ public interface TodoService {
     String deleteTodo(int id);
     List<Todo> getAllDone();
     List<Todo> getAllNotdone();
+    List<Todo> getAllByUserId(int id);
     Todo changeStatus(int id, Boolean status);
     Todo changeContent(int id, String content);
 }

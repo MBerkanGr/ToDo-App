@@ -62,6 +62,11 @@ public class TodoManager implements TodoService {
     }
 
     @Override
+    public List<Todo> getAllByUserId(int id) {
+        return todoDao.findAllByUserId(id);
+    }
+
+    @Override
     public Todo changeStatus(int id, Boolean status) {
         Todo todo = todoDao.getById(id);
         todo.setStatus(status);
